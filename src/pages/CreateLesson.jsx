@@ -36,7 +36,7 @@ function CreateLessonPage() {
       setKeyword([]);
       setInputKeyword("");
 
-      //navigate("/lesson");
+      navigate("/users/profile");
     } catch (error) {
       setError(error.message);
     }
@@ -112,7 +112,7 @@ function CreateLessonPage() {
             onChange={handleChangeKeyword}
             value={inputKeyword}
           />
-          <p>{keyword}</p>
+          <p>{keyword.join(", ")}</p>
         </label>
 
         <input type="submit" value="CreateLesson" />

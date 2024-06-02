@@ -13,7 +13,9 @@ function NavBar() {
     <nav>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/users/signup">Sign Up</NavLink>
-      <NavLink to="/users/login">Login</NavLink>{" "}
+      <NavLink to="/users/login">Login</NavLink>
+      <NavLink to="/users/profile">My profil</NavLink>
+
       <button onClick={logOut}>Logout</button>
     </nav>
   );

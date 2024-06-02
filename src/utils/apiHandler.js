@@ -47,32 +47,43 @@ class ApiHandler {
     return this.api.post("/lessons", lessonData);
   }
 
-  getOneLesson() {
-    return this.api.get("/:lessonId");
+  getOneLesson(lessonId) {
+    return this.api.get(`/lessons/${lessonId}`);
   }
 
   getAllLessons() {
     return this.api.get("/lessons");
   }
 
-  updateLesson(upLessonData) {
-    return this.api.put("/:lessonId", upLessonData);
+  updateLesson(upLessonData, lessonId) {
+    return this.api.put(`/lessons/${lessonId}`, upLessonData);
   }
 
-  deleteLesson() {
-    return this.api.delete("/:lessonId");
+  deleteLesson(lessonId) {
+    return this.api.delete(`/lessons/${lessonId}`);
   }
 
-  createMessage(messageData) {
-    return this.api.post("/lessons/:lessonId/message", messageData);
+  createConversation(lessonId) {
+    return this.api.post(`/lessons/${lessonId}/conversation`);
   }
 
-  lessonMessages() {
-    return this.api.get("/lessons/:lessonId/messages");
+  getConversations(messageType) {
+    return this.api.get(`/me/conversations?messageType=${messageType}`);
   }
 
-  userMessages() {
-    return this.api.get("/me/messages");
+  createMessage(messageData, conversationId) {
+    return this.api.post(
+      `/conversations/${conversationId}/messages`,
+      messageData
+    );
+  }
+
+  // lessonMessages(lessonId) {
+  //   return this.api.get(`/lessons/${lessonId}/message`);
+  // }
+
+  convMessages(conversationId) {
+    return this.api.get(`/conversations/${conversationId}/messages`);
   }
 }
 
