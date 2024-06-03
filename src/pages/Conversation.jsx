@@ -8,6 +8,7 @@ function ConversationPage({ idConv, create }) {
   const [myMessages, setMyMessages] = useState([]);
   const [error, setError] = useState(null);
   const [display, setDisplay] = useState(true);
+  const [oneConv, setOneConv] = useState();
   const { conversationId } = useParams();
 
   async function getMessages() {
@@ -20,14 +21,28 @@ function ConversationPage({ idConv, create }) {
     }
   }
 
+  async function getOneConversation() {
+    try {
+      const response = await apiHandler.getOneConversation(
+        idConv || conversationId
+      );
+
+      setOneConv(response.data);
+      console.log(oneConv);
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+
   useEffect(() => {
     if (!idConv && !conversationId) {
       return;
     }
     getMessages();
+    getOneConversation();
   }, [idConv]);
 
-  function CanWeDisplay() {
+  function canWeDisplay() {
     if (idConv === "" && display === true) {
       setDisplay(false);
     } else if (idConv !== "" && display === false) {
@@ -35,9 +50,9 @@ function ConversationPage({ idConv, create }) {
     }
   }
 
-  CanWeDisplay();
+  function createAppointment() {}
 
-  console.log(idConv, display, "conversation");
+  canWeDisplay();
 
   return (
     <>

@@ -71,6 +71,10 @@ class ApiHandler {
     return this.api.get(`/me/conversations?messageType=${messageType}`);
   }
 
+  getOneConversation(conversationId) {
+    return this.api.get(`/conversations/${conversationId}`);
+  }
+
   createMessage(messageData, conversationId) {
     return this.api.post(
       `/conversations/${conversationId}/messages`,
