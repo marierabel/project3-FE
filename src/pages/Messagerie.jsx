@@ -3,7 +3,7 @@ import SidebarMsg from "../components/messagerie/SidebarMsg";
 import ConversationPage from "./Conversation";
 
 function Messagerie() {
-  const [messageType, setMessageType] = useState("student");
+  const [messageType, setMessageType] = useState("professor");
   const [idConv, setIdConv] = useState("");
 
   //   function CanWeDisplay() {

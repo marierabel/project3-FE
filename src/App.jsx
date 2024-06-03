@@ -49,6 +49,7 @@ function App() {
             path="/users/message/:conversationId"
             Component={ConversationPage}
             display={true}
+            create={true}
           />
         </Route>
       </Routes>

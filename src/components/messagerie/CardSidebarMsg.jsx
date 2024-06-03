@@ -1,6 +1,13 @@
 import React from "react";
 
-function CardSidebarMsg({ lesson, student, id, setIdConv }) {
+function CardSidebarMsg({
+  lesson,
+  student,
+  id,
+  setIdConv,
+  professorPseudo,
+  title,
+}) {
   return (
     <>
       <div
@@ -8,8 +15,8 @@ function CardSidebarMsg({ lesson, student, id, setIdConv }) {
           setIdConv(id);
         }}
       >
-        <h1>{lesson}</h1>
-        <p>{student}</p>
+        <h1>{title}</h1>
+        <p>{professorPseudo}</p>
       </div>
     </>
   );

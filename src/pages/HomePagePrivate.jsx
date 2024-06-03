@@ -86,6 +86,7 @@ function HomePagePrivate() {
         <option value="other">other</option>
       </select>
       <input
+        placeholder="search by keyword"
         type="text"
         name="keyword"
         id="keyword"

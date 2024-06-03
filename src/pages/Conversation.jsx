@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import apiHandler from "../utils/apiHandler";
 import { useParams } from "react-router-dom";
 
-function ConversationPage({ idConv }) {
+function ConversationPage({ idConv, create }) {
   const [myMessages, setMyMessages] = useState([]);
   const [error, setError] = useState(null);
   const [display, setDisplay] = useState(true);
@@ -21,6 +21,9 @@ function ConversationPage({ idConv }) {
   }
 
   useEffect(() => {
+    if (!idConv && !conversationId) {
+      return;
+    }
     getMessages();
   }, [idConv]);
 
@@ -39,15 +42,15 @@ function ConversationPage({ idConv }) {
   return (
     <>
       <div>messages</div>
-      {error && display && <div>{error}</div>}
 
       {display && (
         <>
           <MsgConv
             myMessages={myMessages}
-            conversationId={conversationId}
+            conversationId={idConv || conversationId}
             idConv={idConv}
             reload={getMessages}
+            create={create}
           />
           <button>Book a lesson</button>
         </>

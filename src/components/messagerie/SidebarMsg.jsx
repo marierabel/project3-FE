@@ -29,6 +29,8 @@ function SidebarMsg({ messageType, setIdConv }) {
           <CardSidebarMsg
             lesson={conv.lesson}
             student={conv.student}
+            title={conv.title}
+            professorPseudo={conv.professorPseudo}
             id={conv._id}
             setIdConv={setIdConv}
           />
