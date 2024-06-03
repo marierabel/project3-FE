@@ -1,13 +1,49 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
 
-function CreateLessonPage() {
-  const [lessonForm, setLessonForm] = useState({ email: "", password: "" });
+function CreateLessonPage({ edit = false }) {
+  const [lessonForm, setLessonForm] = useState({
+    title: "",
+    content: "",
+    durationInMin: 0,
+    field: "",
+    keyword: [],
+  });
+
   const [error, setError] = useState(null);
   const [keyword, setKeyword] = useState([]);
   const [inputKeyword, setInputKeyword] = useState();
+  const [duration, setDuration] = useState();
   const navigate = useNavigate();
+  const { lessonId } = useParams();
+  console.log(lessonId);
+
+  console.log(edit);
+
+  async function fetchOneLesson() {
+    if (edit) {
+      try {
+        const response = await apiHandler.getOneLesson(lessonId);
+        const lessonUpdate = response.data;
+        setLessonForm({
+          title: lessonUpdate.title,
+          content: lessonUpdate.content,
+          durationInMin: lessonUpdate.durationInMin,
+          field: lessonUpdate.field,
+          keyword: lessonUpdate.keyword,
+        });
+        setKeyword(lessonUpdate.keyword);
+        setDuration(lessonUpdate.durationInMin.toString());
+      } catch (error) {
+        setError(error.message);
+      }
+    }
+  }
+
+  useEffect(() => {
+    fetchOneLesson();
+  }, []);
 
   function handleChangeKeyword(e) {
     setInputKeyword(e.target.value);
@@ -18,10 +54,14 @@ function CreateLessonPage() {
       e.preventDefault();
       e.stopPropagation();
       setKeyword([...keyword, inputKeyword]);
-      console.log(keyword, "1");
+
       setInputKeyword("");
-      console.log(keyword, "2");
     }
+  }
+
+  function onOptionChange(e) {
+    setDuration(e.target.value);
+    handleChange(e);
   }
 
   function handleChange(e) {
@@ -42,22 +82,51 @@ function CreateLessonPage() {
     }
   }
 
+  async function handleEdit(e) {
+    e.preventDefault();
+
+    try {
+      await apiHandler.updateLesson({ ...lessonForm, keyword }, lessonId);
+      setKeyword([]);
+      setInputKeyword("");
+      navigate("/users/profile");
+    } catch (error) {
+      setError(error.message);
+      console.error(error);
+    }
+  }
+
+  function deleteKeyword(id) {
+    const newKeyword = [...keyword];
+    newKeyword.splice(id, 1);
+    setKeyword(newKeyword);
+  }
+
   return (
     <div>
       {error && <div>{error}</div>}
 
-      <form method="post" onSubmit={handleSubmit}>
+      <form method="post" onSubmit={edit ? handleEdit : handleSubmit}>
         <label htmlFor="title">
           Title
-          <input type="text" name="title" id="title" onChange={handleChange} />
+          <input
+            placeholder="your lesson's title"
+            type="text"
+            name="title"
+            id="title"
+            onChange={handleChange}
+            value={lessonForm.title}
+          />
         </label>
 
         <label htmlFor="content">
           Content
           <textarea
+            placeholder="describe what you can teach"
             name="content"
             id="content"
             onChange={handleChange}
+            value={lessonForm.content}
           ></textarea>
         </label>
 
@@ -67,23 +136,30 @@ function CreateLessonPage() {
             type="radio"
             name="durationInMin"
             id="durationInMin"
-            onChange={handleChange}
+            onChange={onOptionChange}
             value={45}
+            checked={duration === "45"}
           />
           45
           <input
             type="radio"
             name="durationInMin"
             id="durationInMin"
-            onChange={handleChange}
+            onChange={onOptionChange}
             value={60}
+            checked={duration === "60"}
           />
           60
         </label>
 
         <label htmlFor="field">
           Choose the field
-          <select name="field" id="field" onChange={handleChange}>
+          <select
+            name="field"
+            id="field"
+            onChange={handleChange}
+            value={lessonForm.field}
+          >
             <option value="">Choose a field</option>
             <option value="academic">academic</option>
             <option value="music">music</option>
@@ -98,6 +174,7 @@ function CreateLessonPage() {
             <option value="IT">IT</option>
             <option value="danse">danse</option>
             <option value="repair">repair</option>
+            <option value="e-sport">e-sport</option>
             <option value="other">other</option>
           </select>
         </label>
@@ -105,6 +182,7 @@ function CreateLessonPage() {
         <label htmlFor="keyword">
           Keywords :
           <input
+            placeholder="type your Keyword and press Enter"
             type="text"
             name="keyword"
             id="keyword"
@@ -112,12 +190,19 @@ function CreateLessonPage() {
             onChange={handleChangeKeyword}
             value={inputKeyword}
           />
-          <p>{keyword.join(", ")}</p>
+          <div>
+            {keyword.map((word, index) => {
+              return (
+                <p key={word} onClick={() => deleteKeyword(index)}>
+                  {word}
+                </p>
+              );
+            })}
+          </div>
         </label>
 
-        <input type="submit" value="CreateLesson" />
+        <input type="submit" value={!edit ? "Create lesson" : "Edit lesson"} />
       </form>
-      <a href="">you already have an account ? Welcome back and Login</a>
     </div>
   );
 }
