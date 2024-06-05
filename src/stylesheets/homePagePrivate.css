@@ -1,0 +1,46 @@
+.homePagePrivate {
+  margin: 8vw auto;
+}
+
+.HPPform {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3vw;
+}
+
+.HPPform select {
+  width: 8vw;
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: none;
+}
+
+.HPPselect {
+  margin-right: 1vw;
+}
+
+.HPPform input {
+  width: 12vw;
+  font-size: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: none;
+}
+
+.HPPselect:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.HPPform input:hover {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.HPPflex {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  width: 80vw;
+  margin-left: 10vw;
+}

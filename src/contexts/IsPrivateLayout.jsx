@@ -6,7 +6,7 @@ function IsPrivateLayout() {
   const { user } = useContext(AuthContext);
 
   if (!user) {
-    return <Navigate to="/users/login" />;
+    return <Navigate to="/" />;
   }
 
   return (

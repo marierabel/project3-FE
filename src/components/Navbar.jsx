@@ -1,11 +1,9 @@
 import { useContext, useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-import apiHandler from "../utils/apiHandler";
+import "../stylesheets/navbar.css";
 
 function NavBar() {
-  const [tickets, setTickets] = useState([]);
-  const [error, setError] = useState(null);
   const { user, updateToken } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -14,22 +12,8 @@ function NavBar() {
     navigate("/");
   }
 
-  useEffect(() => {
-    async function getTickets() {
-      try {
-        const response = await apiHandler.getUser();
-        const newTickets = response.data.tickets;
-        setTickets(newTickets);
-      } catch (error) {
-        setError(error.message);
-      }
-    }
-
-    getTickets();
-  }, []);
-
   return (
-    <nav>
+    <nav className="navbar">
       {!user && (
         <>
           <NavLink to="/">Home</NavLink>
@@ -40,9 +24,11 @@ function NavBar() {
       {user && (
         <>
           <NavLink to="/home">Home</NavLink>
-          <NavLink to="/users/profile">My profil</NavLink>
-          <NavLink to="/users/messagerie">My messages</NavLink>
-          <div>Tickets : {tickets}</div>
+          <div>
+            <NavLink to="/users/profile">My profil</NavLink>
+            <NavLink to="/users/messagerie">My messages</NavLink>
+            <div>Tickets : {user.tickets}</div>
+          </div>
 
           <button onClick={logOut}>Logout</button>
         </>

@@ -89,6 +89,18 @@ class ApiHandler {
   convMessages(conversationId) {
     return this.api.get(`/conversations/${conversationId}/messages`);
   }
+
+  createAppointment(conversationId) {
+    return this.api.post(`/${conversationId}/appointment`);
+  }
+
+  updateAppointment(conversationId, validationData) {
+    return this.api.put(`/${conversationId}/appointment`, validationData);
+  }
+
+  deleteAppointment(conversationId) {
+    return this.api.delete(`/${conversationId}/appointment`);
+  }
 }
 
 const apiHandler = new ApiHandler();

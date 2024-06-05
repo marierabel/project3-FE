@@ -1,0 +1,14 @@
+.navbar {
+  position: fixed;
+  top: 1vh;
+  right: 0px;
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.navbar > div {
+  width: 30vw;
+  display: flex;
+  justify-content: space-around;
+}

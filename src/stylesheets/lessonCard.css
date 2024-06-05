@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.lessonCard {
+  width: 15vw;
+  height: 15vw;
+  margin: 0 auto;
+  margin-top: 1vw;
+  border: 1px rgba(0, 0, 0, 0.164) solid;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: black;
+  position: relative;
+}
+
+.lessonCard:hover {
+  border: 1px rgba(0, 0, 0, 0.343) solid;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.lessonCard p {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 0.2vw;
+}
+
+.lessonCard h2 {
+  text-align: center;
+  margin-top: 0.8vw;
+  font-size: 1.2rem;
+}
+
+.lessonCard h3 {
+  text-align: center;
+  margin-top: 0.8vw;
+  font-size: 0.9rem;
+}
+
+.NBflex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  text-align: center;
+  padding-top: 1vw;
+}
+
+.hashtags {
+  position: absolute;
+  left: 1vw;
+  bottom: 1vw;
+  font-size: 0.8rem;
+}

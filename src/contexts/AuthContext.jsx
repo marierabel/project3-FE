@@ -18,33 +18,35 @@ function AuthContextProvider({ children }) {
     setAuthToken(token);
   }
 
-  useEffect(() => {
-    async function getUser() {
-      if (!authToken) {
-        if (user) {
-          setUser(null);
-        }
-
-        return;
+  async function getUser() {
+    if (!authToken) {
+      if (user) {
+        setUser(null);
       }
 
-      try {
-        setIsLoading(true);
-        const response = await apiHandler.getUser();
-
-        setUser(response.data);
-        setIsLoading(false);
-      } catch (error) {
-        console.error(error);
-        updateToken(null);
-      }
+      return;
     }
 
+    try {
+      setIsLoading(true);
+      const response = await apiHandler.getUser();
+
+      setUser(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error(error);
+      updateToken(null);
+    }
+  }
+
+  useEffect(() => {
     getUser();
   }, [authToken]);
 
   return (
-    <AuthContext.Provider value={{ user, updateToken, isLoading }}>
+    <AuthContext.Provider
+      value={{ user, updateToken, isLoading, refetchUser: getUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

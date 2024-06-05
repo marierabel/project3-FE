@@ -29,8 +29,8 @@ function App() {
         <NavBar />
       </header>
       <Routes>
-        <Route path="/" Component={HomePagePublic} />
         <Route Component={IsPublicLayout}>
+          <Route path="/" Component={HomePagePublic} />
           <Route path="/users/login" Component={LoginPage} />
           <Route path="/users/signup" Component={SignupPage} />
         </Route>

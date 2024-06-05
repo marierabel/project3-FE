@@ -5,10 +5,11 @@ import apiHandler from "../utils/apiHandler";
 import { useParams } from "react-router-dom";
 
 function ConversationPage({ idConv, create }) {
-  const [myMessages, setMyMessages] = useState([]);
+  const [myMessages, setMyMessages] = useState(null);
   const [error, setError] = useState(null);
   const [display, setDisplay] = useState(true);
   const [oneConv, setOneConv] = useState();
+  const [appointment, setAppointment] = useState();
   const { conversationId } = useParams();
 
   async function getMessages() {
@@ -28,7 +29,6 @@ function ConversationPage({ idConv, create }) {
       );
 
       setOneConv(response.data);
-      console.log(oneConv);
     } catch (error) {
       setError(error.message);
     }
@@ -50,7 +50,29 @@ function ConversationPage({ idConv, create }) {
     }
   }
 
-  function createAppointment() {}
+  async function createAptm() {
+    try {
+      const response = await apiHandler.createAppointment(
+        idConv || conversationId
+      );
+      setAppointment(response.data);
+    } catch (error) {
+      setError(error.message);
+    }
+    try {
+      await apiHandler.createMessage(
+        {
+          content:
+            "An appointment has been booked, congratulations! You'll recieve in few days a validation message asking you if the lesson actually took place. It has to be confirmed by the two parts for your thickets can be updated :)",
+        },
+        idConv || conversationId
+      );
+      getMessages();
+    } catch (error) {
+      setError(error.message);
+      console.error(error);
+    }
+  }
 
   canWeDisplay();
 
@@ -66,8 +88,17 @@ function ConversationPage({ idConv, create }) {
             idConv={idConv}
             reload={getMessages}
             create={create}
+            oneConv={oneConv}
+            setAppointment={setAppointment}
+            appointment={appointment}
           />
-          <button>Book a lesson</button>
+          <button
+            onClick={() => {
+              createAptm();
+            }}
+          >
+            Book a lesson
+          </button>
         </>
       )}
     </>
