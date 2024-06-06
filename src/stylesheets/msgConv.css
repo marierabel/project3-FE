@@ -17,13 +17,22 @@
 }
 
 .userMsg {
-  color: red;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 30vw;
+  margin-left: 30vw;
+  margin-bottom: 0.5vw;
+  padding-right: 1vw;
   text-align: end;
+  background-color: hsla(13, 94%, 66%, 0.201);
 }
 .otherMsg {
-  color: green;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  width: 30vw;
+  margin-bottom: 0.5vw;
+  padding-left: 1vw;
   text-align: start;
+  background-color: hsla(13, 94%, 66%, 0.201);
 }
-.botMsg {
+/* .botMsg {
   color: blue;
-}
+} */

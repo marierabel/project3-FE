@@ -7,6 +7,11 @@
   width: 100vw;
 }
 
+.navbar button {
+  width: 5vw;
+  height: 2vw;
+}
+
 .white,
 .white a {
   color: white;
@@ -30,8 +35,35 @@
   justify-content: space-around;
 }
 
+.orange > div a {
+  font-size: 1.2rem;
+}
+
 .navbar a {
   /* color: white; */
   text-decoration: none;
   font-size: 1.8rem;
 }
+
+.orange img {
+  width: 5vw;
+}
+
+.white img {
+  width: 5vw;
+}
+
+img.NBimg {
+  width: 1vw;
+  height: 1vw;
+  margin-right: 0.2vw;
+}
+
+.NBtickets {
+  color: #6e2594;
+  font-size: 1.4rem;
+}
+/* .orange > div > img {
+  width: 1vw;
+  height: 1vw;
+} */

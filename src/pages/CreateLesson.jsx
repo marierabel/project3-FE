@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import apiHandler from "../utils/apiHandler";
+import "../stylesheets/createLesson.css";
 
 function CreateLessonPage({ edit = false }) {
   const [lessonForm, setLessonForm] = useState({
@@ -103,12 +104,12 @@ function CreateLessonPage({ edit = false }) {
   }
 
   return (
-    <div>
+    <div className="createLesson">
       {error && <div>{error}</div>}
 
       <form method="post" onSubmit={edit ? handleEdit : handleSubmit}>
         <label htmlFor="title">
-          Title
+          Title <br />
           <input
             placeholder="your lesson's title"
             type="text"
@@ -120,7 +121,7 @@ function CreateLessonPage({ edit = false }) {
         </label>
 
         <label htmlFor="content">
-          Content
+          Content <br />
           <textarea
             placeholder="describe what you can teach"
             name="content"
@@ -131,7 +132,7 @@ function CreateLessonPage({ edit = false }) {
         </label>
 
         <label htmlFor="durationInMin">
-          Duration (min):
+          Duration (min): <br />
           <input
             type="radio"
             name="durationInMin"
@@ -139,6 +140,7 @@ function CreateLessonPage({ edit = false }) {
             onChange={onOptionChange}
             value={45}
             checked={duration === "45"}
+            className="radio"
           />
           45
           <input
@@ -148,12 +150,13 @@ function CreateLessonPage({ edit = false }) {
             onChange={onOptionChange}
             value={60}
             checked={duration === "60"}
+            className="radio"
           />
           60
         </label>
 
         <label htmlFor="field">
-          Choose the field
+          Choose the field <br />
           <select
             name="field"
             id="field"
@@ -180,7 +183,7 @@ function CreateLessonPage({ edit = false }) {
         </label>
 
         <label htmlFor="keyword">
-          Keywords :
+          Keywords :<br />
           <input
             placeholder="type your Keyword and press Enter"
             type="text"
@@ -201,7 +204,11 @@ function CreateLessonPage({ edit = false }) {
           </div>
         </label>
 
-        <input type="submit" value={!edit ? "Create lesson" : "Edit lesson"} />
+        <input
+          className="btnSubmit"
+          type="submit"
+          value={!edit ? "Create lesson" : "Edit lesson"}
+        />
       </form>
     </div>
   );

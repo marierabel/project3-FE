@@ -13,3 +13,14 @@
 .profilePage {
   font-size: 2rem;
 }
+
+.PPnewLesson img {
+  width: 5vw;
+  margin-bottom: 1vw;
+}
+
+.PPnewLesson {
+  font-size: 1vw;
+  text-align: center;
+  color: hsl(13, 94%, 66%);
+}

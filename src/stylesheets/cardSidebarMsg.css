@@ -5,10 +5,11 @@
 }
 
 .cardMsg:hover {
-  background-color: aliceblue;
+  background-color: hsla(13, 94%, 66%, 0.441);
 }
 
 .cardMsg h1 {
+  padding-top: 0.2vw;
   font-size: 1.5rem;
   text-align: start;
 }

@@ -1,7 +1,7 @@
 .myLessons {
   width: 30vw;
   font-size: 0.8rem;
-
+  color: #6e2594;
   font-size: 2rem;
   text-align: center;
 }
@@ -11,7 +11,7 @@
   height: 8vw;
   margin: 0 auto;
   margin-top: 0.5vw;
-  border: 1px rgba(0, 0, 0, 0.164) solid;
+  border: 1px hsl(13, 94%, 66%) solid;
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   color: black;
@@ -19,7 +19,7 @@
 }
 
 .MLcard:hover {
-  border: 1px rgba(0, 0, 0, 0.343) solid;
+  border: 1px #6e2594 solid;
 }
 
 .MLcard p {
