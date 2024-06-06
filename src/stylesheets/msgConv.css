@@ -1,0 +1,29 @@
+.msgConv textarea {
+  margin-top: 2vw;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 10px;
+  width: 60vw;
+  height: 6vw;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.msgConv textarea:hover {
+  border: none;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.userMsg {
+  color: red;
+  text-align: end;
+}
+.otherMsg {
+  color: green;
+  text-align: start;
+}
+.botMsg {
+  color: blue;
+}

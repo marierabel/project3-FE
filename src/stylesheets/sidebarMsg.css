@@ -1,0 +1,10 @@
+.sidebarMsg {
+  background-color: antiquewhite;
+  width: 20vw;
+  margin-left: 10vw;
+}
+
+.sidebarMsg p {
+  font-size: 1.8rem;
+  margin-bottom: 2vw;
+}

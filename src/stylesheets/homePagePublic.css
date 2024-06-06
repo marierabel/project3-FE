@@ -1,0 +1,78 @@
+/* #FB9450
+#FA7C59 */
+
+.firstView {
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(13, 94%, 66%);
+  text-align: center;
+}
+
+.firstView p {
+  font-size: 4rem;
+  font-weight: 900;
+  padding-top: 13vw;
+  color: #6e2594;
+  text-shadow: 1px 0 #fff, 0px 0 #fff, 0 0px #fff, 0 -1px #fff;
+}
+
+.test {
+  background-image: url("../assets/gifTeav2.gif");
+  background-repeat: no-repeat;
+  width: 15vw;
+  height: 10vw;
+  position: absolute;
+  left: 44vw;
+  top: 17vw;
+}
+
+.illustrationRole1 {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  background-image: url("../assets/role1.png");
+  background-size: contain;
+  position: absolute;
+  left: 10vw;
+  top: 8vw;
+}
+.illustrationRole2 {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  background-image: url("../assets/role2.png");
+  background-size: contain;
+  position: absolute;
+  left: 16vw;
+  top: 40vw;
+}
+.illustrationRole3 {
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+  background-image: url("../assets/role3.png");
+  background-size: contain;
+  position: absolute;
+  left: 78vw;
+  top: 40vw;
+}
+.illustrationRole4 {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  background-image: url("../assets/role6.png");
+  background-size: contain;
+  position: absolute;
+  left: 7vw;
+  top: 28vw;
+}
+.illustrationRole5 {
+  width: 5vw;
+  height: 5vw;
+  border-radius: 50%;
+  background-image: url("../assets/role5.png");
+  background-size: contain;
+  position: absolute;
+  left: 82vw;
+  top: 10vw;
+}

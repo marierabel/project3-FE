@@ -1,5 +1,85 @@
-.compLessons {
-  width: 50vw;
-  height: 20vw;
+.myLessons {
+  width: 30vw;
   font-size: 0.8rem;
+
+  font-size: 2rem;
+  text-align: center;
+}
+
+.MLcard {
+  width: 30vw;
+  height: 8vw;
+  margin: 0 auto;
+  margin-top: 0.5vw;
+  border: 1px rgba(0, 0, 0, 0.164) solid;
+  border-radius: 8px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: black;
+  position: relative;
+}
+
+.MLcard:hover {
+  border: 1px rgba(0, 0, 0, 0.343) solid;
+}
+
+.MLcard p {
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-top: 0.8vw;
+  text-align: center;
+}
+
+.MLcard h2 {
+  text-align: center;
+  margin-top: 0.8vw;
+  font-size: 1.2rem;
+}
+
+.MLcard h3 {
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+  font-size: 0.8rem;
+}
+.MLcard i {
+  position: absolute;
+  left: 1vw;
+  top: 1vw;
+  font-size: 0.8rem;
+}
+
+.MLcontent {
+  font-size: 0.9rem;
+}
+.MLhashtags {
+  position: absolute;
+  left: 1vw;
+  bottom: 1vw;
+  font-size: 0.8rem;
+}
+
+.MLbutton {
+  margin: 0.4vw auto;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.MLbutton a {
+  padding: 0.2vw;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.35px 1.35px 2px;
+  color: black;
+}
+
+.MLbutton a:hover {
+  background-color: #646cff;
+  box-shadow: rgba(0, 0, 0, 0.392) 1.95px 1.95px 2.6px;
+  color: white;
+}
+
+.MLbutton button {
+  font-size: 1rem;
+  margin-right: 1vw;
 }

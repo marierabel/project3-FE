@@ -31,21 +31,33 @@ function MyLessons() {
   }
 
   return (
-    <div className="compLessons">
-      MyLessons
-      {error && <div>{error}</div>}
+    <div className="myLessons">
+      My Lessons
+      {/* {error && <div>{error}</div>} */}
       {myLessons.map((lesson) => {
         return (
-          <div key={lesson._id}>
-            <Link to={`/lessons/${lesson._id}`}>
-              <h2>{lesson.title}</h2>
-              <h3>{lesson.field}</h3>
-              <i>{lesson.durationInMin}</i>
-              <p>{lesson.content}</p>
-              <p>{lesson.keyword.join(", ")}</p>
-            </Link>
-            <button onClick={(e) => dltLesson(lesson._id)}>delete</button>
-            <Link to={`/lessons/${lesson._id}/update`}>Update</Link>
+          <div className="MLcard">
+            <div key={lesson._id}>
+              <Link
+                to={`/lessons/${lesson._id}`}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <h2>{lesson.title}</h2>
+                <h3>{lesson.field}</h3>
+                <i>Duration :{lesson.durationInMin}</i>
+                <p className="MLcontent">{lesson.content}</p>
+                <p className="MLhashtags">#{lesson.keyword.join(" #")}</p>
+              </Link>
+              <div className="MLbutton">
+                <button onClick={(e) => dltLesson(lesson._id)}>Delete</button>
+                <Link
+                  to={`/lessons/${lesson._id}/update`}
+                  style={{ textDecoration: "none" }}
+                >
+                  Update
+                </Link>
+              </div>
+            </div>
           </div>
         );
       })}

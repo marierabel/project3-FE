@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import apiHandler from "../utils/apiHandler";
+import "../stylesheets/loginPage.css";
 
 function LoginPage() {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
@@ -24,17 +25,19 @@ function LoginPage() {
   }
 
   return (
-    <div>
+    <div className="login">
       {error && <div>{error}</div>}
+      <div className="triangle-code"></div>
+      <p className="joinUs">Welcome</p>
 
       <form method="post" onSubmit={handleSubmit}>
         <label htmlFor="email">
-          Email
+          Email <br />
           <input type="email" name="email" id="email" onChange={handleChange} />
         </label>
 
         <label htmlFor="password">
-          Password
+          Password <br />
           <input
             type="password"
             name="password"
@@ -43,7 +46,7 @@ function LoginPage() {
           />
         </label>
 
-        <input type="submit" value="Login" />
+        <input className="btnLogin" type="submit" value="Login" />
       </form>
       <a href="">you don't have an account yet ? Join and sign up</a>
     </div>

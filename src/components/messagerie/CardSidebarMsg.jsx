@@ -1,4 +1,5 @@
 import React from "react";
+import "../../stylesheets/cardSidebarMsg.css";
 
 function CardSidebarMsg({
   lesson,
@@ -11,12 +12,13 @@ function CardSidebarMsg({
   return (
     <>
       <div
+        className="cardMsg"
         onClick={() => {
           setIdConv(id);
         }}
       >
         <h1>{title}</h1>
-        <p>{professorPseudo}</p>
+        <p>from {professorPseudo}</p>
       </div>
     </>
   );

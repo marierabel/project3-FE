@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import apiHandler from "../../utils/apiHandler";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext";
+import "../../stylesheets/msgConv.css";
 
 function MsgConv({
   myMessages,
@@ -11,6 +12,7 @@ function MsgConv({
   oneConv,
   setAppointment,
   appointment,
+  messageType,
 }) {
   const [msgContent, setMsgContent] = useState("");
   const [error, setError] = useState(null);
@@ -24,10 +26,12 @@ function MsgConv({
   async function handleSendMessage(e) {
     if (e.key === "Enter" || e.keyCode === 13) {
       e.preventDefault();
+
       try {
         await apiHandler.createMessage({ content: msgContent }, conversationId);
         await reload();
         setMsgContent("");
+
         if (create) {
           navigate("/users/messagerie");
         }
@@ -62,6 +66,16 @@ function MsgConv({
     }
   }
 
+  function hideValidation(validation) {
+    if (!oneConv) {
+      return false;
+    }
+    return (
+      (user._id === oneConv.student && validation.studValidation) ||
+      (user._id === oneConv.professorId && validation.profValidation)
+    );
+  }
+
   function olderThan3d(createdAt) {
     return Date.now() - new Date(createdAt).valueOf() > 5000;
   }
@@ -73,18 +87,33 @@ function MsgConv({
   // }, []);
 
   return (
-    <div>
+    <div className="msgConv">
       {myMessages &&
         myMessages.messages.map((msg) => {
-          return <div>{msg.content}</div>;
+          return (
+            <div
+              className={
+                msg.author === user._id
+                  ? "userMsg"
+                  : msg.author === "665ee345239f0115301f2f48"
+                  ? "botMsg"
+                  : "otherMsg"
+              }
+            >
+              {msg.content}
+            </div>
+          );
         })}
       {myMessages &&
         myMessages.validations[0] &&
-        olderThan3d(myMessages.validations[0].createdAt) && (
+        olderThan3d(myMessages.validations[0].createdAt) &&
+        !hideValidation(myMessages.validations[0]) && (
           <>
-            <p>Can you confirm that the appointment took place?</p>
-            <button onClick={() => sayYesValidation()}>Yes!</button>
-            <button>No...</button>
+            <div className="confirmation">
+              <p>Can you confirm that the appointment took place?</p>
+              <button onClick={() => sayYesValidation()}>Yes!</button>
+              <button>No...</button>
+            </div>
           </>
         )}
       <textarea

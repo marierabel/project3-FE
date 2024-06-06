@@ -1,3 +1,15 @@
+.profilePage {
+  margin: 5vw;
+}
+
 .flexProfil {
   display: flex;
+  font-size: 1rem;
+  width: 90vw;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profilePage {
+  font-size: 2rem;
 }

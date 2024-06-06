@@ -6,11 +6,17 @@ import { Link } from "react-router-dom";
 
 function ProfilePage() {
   return (
-    <div>
-      Profil Page
+    <div className="profilePage">
       <div className="flexProfil">
-        <Link to="/lessons/create">New Lesson</Link>
         <MyLessons />
+        <div className="PPnewLesson">
+          <Link
+            to="/lessons/create"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            New Lesson
+          </Link>
+        </div>
         <MyProfil />
       </div>
     </div>

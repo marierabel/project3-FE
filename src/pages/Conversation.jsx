@@ -3,8 +3,9 @@ import MsgConv from "../components/messagerie/MsgConv";
 import { useState, useEffect } from "react";
 import apiHandler from "../utils/apiHandler";
 import { useParams } from "react-router-dom";
+import "../stylesheets/conversation.css";
 
-function ConversationPage({ idConv, create }) {
+function ConversationPage({ idConv, create, messageType }) {
   const [myMessages, setMyMessages] = useState(null);
   const [error, setError] = useState(null);
   const [display, setDisplay] = useState(true);
@@ -40,7 +41,7 @@ function ConversationPage({ idConv, create }) {
     }
     getMessages();
     getOneConversation();
-  }, [idConv]);
+  }, [idConv || conversationId]);
 
   function canWeDisplay() {
     if (idConv === "" && display === true) {
@@ -78,29 +79,30 @@ function ConversationPage({ idConv, create }) {
 
   return (
     <>
-      <div>messages</div>
-
-      {display && (
-        <>
-          <MsgConv
-            myMessages={myMessages}
-            conversationId={idConv || conversationId}
-            idConv={idConv}
-            reload={getMessages}
-            create={create}
-            oneConv={oneConv}
-            setAppointment={setAppointment}
-            appointment={appointment}
-          />
-          <button
-            onClick={() => {
-              createAptm();
-            }}
-          >
-            Book a lesson
-          </button>
-        </>
-      )}
+      <div className="conversation">
+        {display && (
+          <>
+            <MsgConv
+              messageType={messageType}
+              myMessages={myMessages}
+              conversationId={idConv || conversationId}
+              idConv={idConv}
+              reload={getMessages}
+              create={create}
+              oneConv={oneConv}
+              setAppointment={setAppointment}
+              appointment={appointment}
+            />
+            <button
+              onClick={() => {
+                createAptm();
+              }}
+            >
+              Book a lesson
+            </button>
+          </>
+        )}
+      </div>
     </>
   );
 }

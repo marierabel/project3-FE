@@ -1,0 +1,20 @@
+.conversation {
+  width: 60vw;
+  margin: 0 3vw;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+.conversation button {
+  font-size: 1.2rem;
+  padding: 0.3vw;
+  background: none;
+  color: inherit;
+  border: none;
+  border-radius: 8px;
+  box-shadow: rgba(40, 40, 40, 0.2) 0px 2px 8px 0px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin: 2vw;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import apiHandler from "../utils/apiHandler";
+import "../stylesheets/myProfil.css";
 
 function MyProfil() {
   const [profil, setProfil] = useState([]);
@@ -21,15 +22,25 @@ function MyProfil() {
   }, []);
 
   return (
-    <div>
-      My Profil
+    <div className="myProfil">
+      <h1>My Profil</h1>
       {error && <div>{error}</div>}
       <div key={profil._id}>
-        <p>Email : {profil.email}</p>
-        <p>Name : {profil.name}</p>
-        <p>Pseudo : {profil.pseudo}</p>
-        <p>Little description : {profil.bio}</p>
-        <p>Number of tickets : {profil.tickets}</p>
+        <p>
+          <span>Email</span> <br /> {profil.email}
+        </p>
+        <p>
+          <span>Name</span> <br /> {profil.name}
+        </p>
+        <p>
+          <span>Pseudo</span> <br /> {profil.pseudo}
+        </p>
+        <p>
+          <span> Little description</span> <br /> {profil.bio}
+        </p>
+        <p>
+          <span> Number of tickets</span> <br /> {profil.tickets}
+        </p>
       </div>
     </div>
   );

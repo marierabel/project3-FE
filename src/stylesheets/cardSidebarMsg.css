@@ -1,0 +1,20 @@
+.cardMsg {
+  padding-bottom: 1vw;
+  padding-left: 2vw;
+  width: 18vw;
+}
+
+.cardMsg:hover {
+  background-color: aliceblue;
+}
+
+.cardMsg h1 {
+  font-size: 1.5rem;
+  text-align: start;
+}
+
+.cardMsg p {
+  font-size: 1rem;
+  text-align: start;
+  margin-left: 0.5vw;
+}
