@@ -71,6 +71,8 @@ function HomePagePrivate() {
 
   return (
     <div className="homePagePrivate">
+      <div className="HPPbanniere"></div>
+      <h3>Search a Lesson</h3>
       <div className="HPPform">
         <div className="HPPselect">
           <select
@@ -106,6 +108,7 @@ function HomePagePrivate() {
           onChange={changeKeyword}
         />
       </div>
+
       <div className="HPPflex">
         {filteredLessons.map((lesson) => {
           return <LessonCard key={lesson.id} lesson={lesson} />;

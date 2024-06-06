@@ -19,6 +19,8 @@
 .test {
   background-image: url("../assets/gifTeav2.gif");
   background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
   width: 15vw;
   height: 10vw;
   position: absolute;

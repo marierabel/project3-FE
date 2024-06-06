@@ -7,14 +7,31 @@
   width: 100vw;
 }
 
-.navbar > div {
-  width: 30vw;
+.white,
+.white a {
+  color: white;
+}
+
+.orange,
+.orange a {
+  color: black;
+}
+
+.white,
+.orange {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.orange > div {
+  width: 50vw;
   display: flex;
   justify-content: space-around;
 }
 
 .navbar a {
-  color: white;
+  /* color: white; */
   text-decoration: none;
   font-size: 1.8rem;
 }

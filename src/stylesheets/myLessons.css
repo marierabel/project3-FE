@@ -56,6 +56,7 @@
   left: 1vw;
   bottom: 1vw;
   font-size: 0.8rem;
+  color: #fa7c59;
 }
 
 .MLbutton {
@@ -74,7 +75,7 @@
 }
 
 .MLbutton a:hover {
-  background-color: #646cff;
+  background-color: #6e2594;
   box-shadow: rgba(0, 0, 0, 0.392) 1.95px 1.95px 2.6px;
   color: white;
 }

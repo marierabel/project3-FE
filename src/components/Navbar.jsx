@@ -16,18 +16,22 @@ function NavBar() {
     <nav className="navbar">
       {!user && (
         <>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/users/signup">Sign Up</NavLink>
-          <NavLink to="/users/login">Login</NavLink>
+          <div className="white">
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/users/signup">Sign Up</NavLink>
+            <NavLink to="/users/login">Login</NavLink>
+          </div>
         </>
       )}
       {user && (
         <>
-          <NavLink to="/home">Home</NavLink>
-          <div>
-            <NavLink to="/users/profile">My profil</NavLink>
-            <NavLink to="/users/messagerie">My messages</NavLink>
-            <div>Tickets : {user.tickets}</div>
+          <div className="orange">
+            <NavLink to="/home">Home</NavLink>
+            <div>
+              <NavLink to="/users/profile">My profil</NavLink>
+              <NavLink to="/users/messagerie">My messages</NavLink>
+              <div>Tickets : {user.tickets}</div>
+            </div>
           </div>
 
           <button onClick={logOut}>Logout</button>

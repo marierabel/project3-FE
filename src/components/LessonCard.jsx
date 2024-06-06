@@ -8,7 +8,7 @@ function LessonCard({ lesson }) {
         to={`/lessons/${lesson._id}`}
         style={{ textDecoration: "none", color: "inherit" }}
       >
-        <p>{lesson.field}</p>
+        <p className="field">{lesson.field}</p>
 
         <h2>{lesson.title}</h2>
         <h3>By {lesson.professor.pseudo}</h3>

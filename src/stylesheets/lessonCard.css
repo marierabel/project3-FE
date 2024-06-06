@@ -8,11 +8,12 @@
   height: 15vw;
   margin: 0 auto;
   margin-top: 1vw;
-  border: 1px rgba(0, 0, 0, 0.164) solid;
+  border: 1px #6e2594 solid;
   border-radius: 8px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   color: black;
   position: relative;
+  background-color: white;
 }
 
 .lessonCard:hover {
@@ -30,7 +31,8 @@
 .lessonCard h2 {
   text-align: center;
   margin-top: 0.8vw;
-  font-size: 1.2rem;
+  font-size: 1.3vw;
+  color: #6e2594;
 }
 
 .lessonCard h3 {
@@ -47,6 +49,7 @@
 .content {
   text-align: center;
   padding-top: 1vw;
+  font-size: 1vw;
 }
 
 .hashtags {
@@ -54,4 +57,10 @@
   left: 1vw;
   bottom: 1vw;
   font-size: 0.8rem;
+  color: hsl(13, 94%, 66%);
+}
+
+.field {
+  font-size: 0.8vw;
+  color: rgb(88, 86, 86);
 }
