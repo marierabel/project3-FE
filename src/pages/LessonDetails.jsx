@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import apiHandler from "../utils/apiHandler";
 import { useParams, useNavigate } from "react-router-dom";
+import "../stylesheets/lessonDetails.css";
 
 function LessonDetails() {
   const [oneLesson, setOneLesson] = useState([]);
@@ -37,13 +38,13 @@ function LessonDetails() {
     getLesson();
   }, []);
   return (
-    <div>
+    <div className="lessonDetails">
       <h2>{oneLesson.title}</h2>
       <h3>By {oneLesson.professor}</h3>
       <p>{oneLesson.content}</p>
       <p>{oneLesson.durationInMin} </p>
       <p>{oneLesson.field}</p>
-      <p>{oneLesson.keyword?.join(", ")}</p>
+      <p>#{oneLesson.keyword?.join(" #")}</p>
       <button onClick={createConversation}>Send a message</button>
     </div>
   );

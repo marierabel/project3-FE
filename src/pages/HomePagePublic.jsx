@@ -7,8 +7,8 @@ function HomePagePublic() {
   return (
     <div>
       <div className="firstView">
-        <p>We all have something to share</p>
         <div className="test"></div>
+        <p>We all have something to share</p>
         <p>What do you want to learn Today ?</p>
         <div className="illustrationRole1"></div>
         <div className="illustrationRole2"></div>

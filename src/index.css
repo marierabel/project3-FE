@@ -67,6 +67,10 @@ button:focus-visible {
   }
 } */
 
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
 button {
   padding: 0.2vw;
   border-radius: 5px;

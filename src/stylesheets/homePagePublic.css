@@ -6,6 +6,7 @@
   height: 100vh;
   background-color: hsl(13, 94%, 66%);
   text-align: center;
+  z-index: 1;
 }
 
 .firstView p {
@@ -13,7 +14,8 @@
   font-weight: 900;
   padding-top: 13vw;
   color: #6e2594;
-  text-shadow: 1px 0 #fff, 0px 0 #fff, 0 0px #fff, 0 -1px #fff;
+
+  /* text-shadow: 1px 0 #fff, 0px 0 #fff, 0 0px #fff, 0 -1px #fff; */
 }
 
 .test {
