@@ -80,11 +80,11 @@ function MsgConv({
     return Date.now() - new Date(createdAt).valueOf() > 5000;
   }
 
-  // useEffect(() => {
-  //   const reloadMsg = setInterval(() => {
-  //     reload();
-  //   }, 50000);
-  // }, []);
+  useEffect(() => {
+    const reloadMsg = setInterval(() => {
+      reload();
+    }, 50000);
+  }, []);
 
   return (
     <div className="msgConv">
